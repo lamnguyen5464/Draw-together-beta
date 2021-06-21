@@ -1,13 +1,14 @@
-package com.example.canvas_android
+package com.example.canvas_android.view
 
 import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Paint
 import android.util.AttributeSet
-import android.util.Log
 import android.view.MotionEvent
 import android.view.View
+import com.example.canvas_android.R
+import com.example.canvas_android.model.Point
 
 class MyCanvas(context: Context?, attrs: AttributeSet?) : View(context, attrs) {
 
@@ -16,7 +17,6 @@ class MyCanvas(context: Context?, attrs: AttributeSet?) : View(context, attrs) {
     @SuppressLint("ResourceAsColor")
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
-        Log.d("@@@", "start draw")
 
         var paintStyle = Paint();
         paintStyle.strokeWidth = 15F
