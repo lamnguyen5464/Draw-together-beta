@@ -6,58 +6,41 @@
 //
 
 import UIKit
+import SocketIO
 
 class Canvas: UIView{
     
-    var lines = [[CGPoint]]()
+    var myPainting = Painting()
+    var yourPaiting = Painting()
     
     override func draw(_ rect: CGRect) {
         super.draw(rect)
         
         guard let context = UIGraphicsGetCurrentContext() else{return}
         
-        print("Start draw")
-        
-        context.setLineWidth(15)
+        context.setLineWidth(10)
         context.setLineCap(.round)
-        context.setStrokeColor(UIColor.getColor(hex: "black_09").cgColor) 
+        context.setStrokeColor(UIColor.getColor(hex: "black_20").cgColor) 
         
-        
-        for (_, line) in lines.enumerated(){
-            for(j, point) in line.enumerated(){
-                print(point.x, point.y)
-                if ((j) != 0){
-                    context.addLine(to: point)
-                }else{
-                    context.move(to: point)
-                }
+        yourPaiting.scanAllPoints(resolve: {(point, isNewStroke) in
+            if (!isNewStroke){
+                context.addLine(to: point.getScaledPoint())
+            }else{
+                context.move(to: point.getScaledPoint())
             }
-        }
-        
+        })
         
         context.strokePath()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        lines.append([CGPoint]())
+        myPainting.addStroke(stroke: [CGPoint]())
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let point = touches.first?.location(in: nil){
-            
-            guard var lastLine = lines.popLast() else {return}
-            
-            
-           
-            
-            lastLine.append(point)
-            lines.append(lastLine)
-            
-            setNeedsDisplay()
-            
+            myPainting.addPointToLastStroke(point: point.getScaledPoint())
+            WS.intance.socket.emit("device_data", myPainting.lastStrokeToJSONArray()!)
         }
     }
-    
-    
-    
 }

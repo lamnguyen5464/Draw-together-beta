@@ -3,10 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		895D6E8A26861BCE00C7C796 /* Configs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895D6E8926861BCE00C7C796 /* Configs.swift */; };
+		895D6E9526861E6500C7C796 /* WS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895D6E9426861E6500C7C796 /* WS.swift */; };
+		895D6ED22686F86C00C7C796 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 895D6ED12686F86C00C7C796 /* SwiftPackageProductDependency */; };
+		895D6ED72686FB0200C7C796 /* Painting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895D6ED62686FB0200C7C796 /* Painting.swift */; };
+		895D6EE02687397A00C7C796 /* CGPoint+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895D6EDF2687397A00C7C796 /* CGPoint+Extension.swift */; };
 		89B4E7172680A56A00D92395 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B4E7162680A56A00D92395 /* AppDelegate.swift */; };
 		89B4E7192680A56A00D92395 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B4E7182680A56A00D92395 /* SceneDelegate.swift */; };
 		89B4E71B2680A56A00D92395 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B4E71A2680A56A00D92395 /* ViewController.swift */; };
@@ -17,6 +22,7 @@
 		89B4E7392680A56D00D92395 /* Canvas_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B4E7382680A56D00D92395 /* Canvas_iOSUITests.swift */; };
 		89B4E74F2680A62500D92395 /* Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B4E74E2680A62500D92395 /* Canvas.swift */; };
 		89B4E7572680A6FC00D92395 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B4E7562680A6FC00D92395 /* UIColor+Extensions.swift */; };
+		8BAE5AB09ED78DCC1B690A17 /* Pods_Canvas_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 672B7A8276FBBB250BA35355 /* Pods_Canvas_iOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +43,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		672B7A8276FBBB250BA35355 /* Pods_Canvas_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Canvas_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		67AB421FD6DD1779AB9A4AB3 /* Pods-Canvas-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Canvas-iOS.debug.xcconfig"; path = "Target Support Files/Pods-Canvas-iOS/Pods-Canvas-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		895D6E8926861BCE00C7C796 /* Configs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configs.swift; sourceTree = "<group>"; };
+		895D6E9426861E6500C7C796 /* WS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WS.swift; sourceTree = "<group>"; };
+		895D6ED62686FB0200C7C796 /* Painting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Painting.swift; sourceTree = "<group>"; };
+		895D6EDF2687397A00C7C796 /* CGPoint+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+Extension.swift"; sourceTree = "<group>"; };
 		89B4E7132680A56A00D92395 /* Canvas-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Canvas-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		89B4E7162680A56A00D92395 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89B4E7182680A56A00D92395 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,6 +65,7 @@
 		89B4E73A2680A56D00D92395 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		89B4E74E2680A62500D92395 /* Canvas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Canvas.swift; sourceTree = "<group>"; };
 		89B4E7562680A6FC00D92395 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		9A3C2441171BE2B04DC62671 /* Pods-Canvas-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Canvas-iOS.release.xcconfig"; path = "Target Support Files/Pods-Canvas-iOS/Pods-Canvas-iOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +73,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				895D6ED22686F86C00C7C796 /* BuildFile in Frameworks */,
+				8BAE5AB09ED78DCC1B690A17 /* Pods_Canvas_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,6 +95,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		154BBCF671339E62845ECAA6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				672B7A8276FBBB250BA35355 /* Pods_Canvas_iOS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		28EECA6A714AE74BDCEF3483 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				67AB421FD6DD1779AB9A4AB3 /* Pods-Canvas-iOS.debug.xcconfig */,
+				9A3C2441171BE2B04DC62671 /* Pods-Canvas-iOS.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		89B4E70A2680A56900D92395 = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +119,8 @@
 				89B4E72C2680A56D00D92395 /* Canvas-iOSTests */,
 				89B4E7372680A56D00D92395 /* Canvas-iOSUITests */,
 				89B4E7142680A56A00D92395 /* Products */,
+				28EECA6A714AE74BDCEF3483 /* Pods */,
+				154BBCF671339E62845ECAA6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -146,6 +180,8 @@
 		89B4E74A2680A5B700D92395 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				895D6E8926861BCE00C7C796 /* Configs.swift */,
+				895D6EDF2687397A00C7C796 /* CGPoint+Extension.swift */,
 				89B4E7562680A6FC00D92395 /* UIColor+Extensions.swift */,
 			);
 			path = Utilities;
@@ -170,6 +206,8 @@
 		89B4E74D2680A5DD00D92395 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				895D6E9426861E6500C7C796 /* WS.swift */,
+				895D6ED62686FB0200C7C796 /* Painting.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -181,15 +219,20 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 89B4E73D2680A56D00D92395 /* Build configuration list for PBXNativeTarget "Canvas-iOS" */;
 			buildPhases = (
+				AE74A116323C82CDCB8F76F8 /* [CP] Check Pods Manifest.lock */,
 				89B4E70F2680A56900D92395 /* Sources */,
 				89B4E7102680A56900D92395 /* Frameworks */,
 				89B4E7112680A56900D92395 /* Resources */,
+				19D4BCADCF1A5CCC8F160E98 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "Canvas-iOS";
+			packageProductDependencies = (
+				895D6ED12686F86C00C7C796 /* SwiftPackageProductDependency */,
+			);
 			productName = "Canvas-iOS";
 			productReference = 89B4E7132680A56A00D92395 /* Canvas-iOS.app */;
 			productType = "com.apple.product-type.application";
@@ -261,6 +304,9 @@
 				Base,
 			);
 			mainGroup = 89B4E70A2680A56900D92395;
+			packageReferences = (
+				895D6ED02686F86C00C7C796 /* RemoteSwiftPackageReference */,
+			);
 			productRefGroup = 89B4E7142680A56A00D92395 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -299,14 +345,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		19D4BCADCF1A5CCC8F160E98 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Canvas-iOS/Pods-Canvas-iOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Canvas-iOS/Pods-Canvas-iOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Canvas-iOS/Pods-Canvas-iOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AE74A116323C82CDCB8F76F8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Canvas-iOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		89B4E70F2680A56900D92395 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				89B4E71B2680A56A00D92395 /* ViewController.swift in Sources */,
+				895D6E8A26861BCE00C7C796 /* Configs.swift in Sources */,
 				89B4E7572680A6FC00D92395 /* UIColor+Extensions.swift in Sources */,
+				895D6EE02687397A00C7C796 /* CGPoint+Extension.swift in Sources */,
 				89B4E7172680A56A00D92395 /* AppDelegate.swift in Sources */,
+				895D6E9526861E6500C7C796 /* WS.swift in Sources */,
+				895D6ED72686FB0200C7C796 /* Painting.swift in Sources */,
 				89B4E7192680A56A00D92395 /* SceneDelegate.swift in Sources */,
 				89B4E74F2680A62500D92395 /* Canvas.swift in Sources */,
 			);
@@ -481,6 +573,7 @@
 		};
 		89B4E73E2680A56D00D92395 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 67AB421FD6DD1779AB9A4AB3 /* Pods-Canvas-iOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -499,6 +592,7 @@
 		};
 		89B4E73F2680A56D00D92395 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9A3C2441171BE2B04DC62671 /* Pods-Canvas-iOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -635,6 +729,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		895D6ED02686F86C00C7C796 /* RemoteSwiftPackageReference */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/socketio/socket.io-client-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 16.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		895D6ED12686F86C00C7C796 /* SwiftPackageProductDependency */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 895D6ED02686F86C00C7C796 /* RemoteSwiftPackageReference */;
+			productName = SocketIO;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 89B4E70B2680A56900D92395 /* Project object */;
 }

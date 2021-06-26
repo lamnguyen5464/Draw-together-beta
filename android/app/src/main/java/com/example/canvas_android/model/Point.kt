@@ -1,4 +1,4 @@
-package com.example.canvas_android
+package com.example.canvas_android.model
 
 class Point {
     constructor(x: Float, y: Float) {
