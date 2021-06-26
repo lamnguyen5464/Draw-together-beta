@@ -25,7 +25,33 @@ const setupAndroid = () => {
 			if (err) {
 				console.error(err)
 			}
-			console.log('write sucessfully')
+			console.log('config url for android sucessfully')
+		})
+	});
+}
+
+const setupIOS = () => {
+	const iosConfigPath = path.slice(0, path.lastIndexOf("/") + 1) + "ios/Canvas-iOS/Utilities/Configs.swift";
+
+	console.log('iosConfigPath', iosConfigPath)
+
+	exec("ipconfig getifaddr en0", (error, ip, stderr) => {
+		if (error) {
+			console.log(`error: ${error.message}`);
+			return;
+		}
+		if (stderr) {
+			console.log(`stderr: ${stderr}`);
+			return;
+		}
+
+		const conetent = `public let SOCKET_URI = "http://${ip.slice(0, -1)}:3000";`		//erase lineFeed
+
+		fs.writeFile(iosConfigPath, conetent, "utf8", (err) => {
+			if (err) {
+				console.error(err)
+			}
+			console.log('config url for ios sucessfully')
 		})
 	});
 }
@@ -49,6 +75,9 @@ console.log('type: ', type)
 switch (type) {
 	case 'android':
 		setupAndroid();
+		break;
+	case 'ios':
+		setupIOS();
 		break;
 	case 'commit':
 		gitCommit()

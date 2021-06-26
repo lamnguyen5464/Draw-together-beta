@@ -13,13 +13,10 @@ class Canvas: UIView{
     var myPainting = Painting()
     var yourPaiting = Painting()
     
-
-
     override func draw(_ rect: CGRect) {
         super.draw(rect)
         
         guard let context = UIGraphicsGetCurrentContext() else{return}
-        
         
         context.setLineWidth(10)
         context.setLineCap(.round)
@@ -32,7 +29,6 @@ class Canvas: UIView{
                 context.move(to: point.getScaledPoint())
             }
         })
-        
         
         context.strokePath()
     }
@@ -47,7 +43,4 @@ class Canvas: UIView{
             WS.intance.socket.emit("device_data", myPainting.lastStrokeToJSONArray()!)
         }
     }
-    
-    
-    
 }

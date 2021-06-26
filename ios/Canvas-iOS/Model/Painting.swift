@@ -11,9 +11,7 @@ import UIKit
 class Painting{
     var listStrokes =  [[CGPoint]]()
     
-    init(){
-        
-    }
+    init(){}
     
     init(dataString: String){
         if let jsonArray = try? JSONSerialization.jsonObject(with: Data(dataString.utf8), options: []) as? [[Any]] {
