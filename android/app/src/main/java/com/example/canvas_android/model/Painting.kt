@@ -38,9 +38,10 @@ class Painting {
     }
 
     fun scanAllPoints(resolve: (Point, Boolean) -> Unit) {
-        for (stroke in listStrokes) {
-            for ((index, currentPoint) in stroke.iterator().withIndex()) {
-                resolve(currentPoint, index === 0)
+        for (index in 0..listStrokes.size-1) {
+            val stroke = listStrokes[index]
+            for ((jndex, currentPoint) in stroke.iterator().withIndex()) {
+                resolve(currentPoint, jndex === 0)
             }
         }
     }
@@ -80,6 +81,4 @@ class Painting {
         res.put(stroke)
         return res
     }
-
-
 }

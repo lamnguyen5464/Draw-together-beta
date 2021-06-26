@@ -5,6 +5,7 @@ import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Paint
 import android.util.AttributeSet
+import android.util.DisplayMetrics
 import android.util.Log
 import android.view.MotionEvent
 import android.view.View
@@ -14,16 +15,21 @@ import com.example.canvas_android.model.Point
 import com.example.canvas_android.model.WS
 import io.socket.client.Socket
 import io.socket.emitter.Emitter
-import org.jetbrains.anko.runOnUiThread
 import org.json.JSONArray
-import kotlin.collections.ArrayList
+
 
 class MyCanvas(context: Context?, attrs: AttributeSet?) : View(context, attrs) {
 
     var myPainting = Painting()
     var yourPainting = Painting()
 
+    val SCREEN_WIDTH: Int
+    val SCREEN_HEIGHT: Int
+
     init {
+        val metrics: DisplayMetrics? = context?.getResources()?.getDisplayMetrics()
+        SCREEN_WIDTH = metrics?.widthPixels ?: 0
+        SCREEN_HEIGHT = metrics?.heightPixels ?: 0
 
         WS.getIntance().doConnect()
 
@@ -41,10 +47,8 @@ class MyCanvas(context: Context?, attrs: AttributeSet?) : View(context, attrs) {
             Log.d("@@@", "receive data from server" + it[0].toString())
             yourPainting.addStroke(JSONArray(it[0].toString()))
 
-            this.context.runOnUiThread {
-                postInvalidate()
+            postInvalidate()
 
-            }
         })
     }
 
@@ -62,7 +66,7 @@ class MyCanvas(context: Context?, attrs: AttributeSet?) : View(context, attrs) {
         yourPainting?.scanAllPoints { point: Point, isFirstPointOfStroke: Boolean ->
             var curPoint = point
             prePoint = if (isFirstPointOfStroke) point else prePoint
-            canvas?.drawLine(prePoint!!.x, prePoint!!.y, curPoint.x, curPoint.y, paintStyle)
+            canvas?.drawLine(prePoint!!.x * SCREEN_WIDTH, prePoint!!.y * SCREEN_HEIGHT, curPoint.x * SCREEN_WIDTH, curPoint.y * SCREEN_HEIGHT, paintStyle)
             prePoint = curPoint
         }
 
@@ -77,9 +81,8 @@ class MyCanvas(context: Context?, attrs: AttributeSet?) : View(context, attrs) {
             }
 
             MotionEvent.ACTION_MOVE -> {
-                myPainting.addPointToLastStroke(Point(event.x, event.y))
+                myPainting.addPointToLastStroke(Point(event.x / SCREEN_WIDTH, event.y / SCREEN_HEIGHT))
 //                postInvalidate()
-
                 WS.getIntance().socket.emit("device_data", myPainting.lastStrokeToJSONArray())
             }
         }

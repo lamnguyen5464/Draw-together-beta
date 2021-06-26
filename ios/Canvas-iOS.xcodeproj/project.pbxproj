@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		895D6E802686140100C7C796 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895D6E7F2686140100C7C796 /* Point.swift */; };
 		895D6E8A26861BCE00C7C796 /* Configs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895D6E8926861BCE00C7C796 /* Configs.swift */; };
 		895D6E9526861E6500C7C796 /* WS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895D6E9426861E6500C7C796 /* WS.swift */; };
 		895D6ED22686F86C00C7C796 /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = 895D6ED12686F86C00C7C796 /* SocketIO */; };
 		895D6ED72686FB0200C7C796 /* Painting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895D6ED62686FB0200C7C796 /* Painting.swift */; };
+		895D6EE02687397A00C7C796 /* CGPoint+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895D6EDF2687397A00C7C796 /* CGPoint+Extension.swift */; };
 		89B4E7172680A56A00D92395 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B4E7162680A56A00D92395 /* AppDelegate.swift */; };
 		89B4E7192680A56A00D92395 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B4E7182680A56A00D92395 /* SceneDelegate.swift */; };
 		89B4E71B2680A56A00D92395 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B4E71A2680A56A00D92395 /* ViewController.swift */; };
@@ -42,10 +42,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		895D6E7F2686140100C7C796 /* Point.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
 		895D6E8926861BCE00C7C796 /* Configs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configs.swift; sourceTree = "<group>"; };
 		895D6E9426861E6500C7C796 /* WS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WS.swift; sourceTree = "<group>"; };
 		895D6ED62686FB0200C7C796 /* Painting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Painting.swift; sourceTree = "<group>"; };
+		895D6EDF2687397A00C7C796 /* CGPoint+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+Extension.swift"; sourceTree = "<group>"; };
 		89B4E7132680A56A00D92395 /* Canvas-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Canvas-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		89B4E7162680A56A00D92395 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89B4E7182680A56A00D92395 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -97,6 +97,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		895D6EDE2687394C00C7C796 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				895D6EDF2687397A00C7C796 /* CGPoint+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		89B4E70A2680A56900D92395 = {
 			isa = PBXGroup;
 			children = (
@@ -121,6 +129,7 @@
 		89B4E7152680A56A00D92395 /* Canvas-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				895D6EDE2687394C00C7C796 /* Extensions */,
 				89B4E74D2680A5DD00D92395 /* Model */,
 				89B4E74C2680A5D500D92395 /* ViewModel */,
 				89B4E74B2680A5CD00D92395 /* View */,
@@ -188,7 +197,6 @@
 		89B4E74D2680A5DD00D92395 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				895D6E7F2686140100C7C796 /* Point.swift */,
 				895D6E8926861BCE00C7C796 /* Configs.swift */,
 				895D6E9426861E6500C7C796 /* WS.swift */,
 				895D6ED62686FB0200C7C796 /* Painting.swift */,
@@ -335,7 +343,7 @@
 				89B4E71B2680A56A00D92395 /* ViewController.swift in Sources */,
 				895D6E8A26861BCE00C7C796 /* Configs.swift in Sources */,
 				89B4E7572680A6FC00D92395 /* UIColor+Extensions.swift in Sources */,
-				895D6E802686140100C7C796 /* Point.swift in Sources */,
+				895D6EE02687397A00C7C796 /* CGPoint+Extension.swift in Sources */,
 				89B4E7172680A56A00D92395 /* AppDelegate.swift in Sources */,
 				895D6E9526861E6500C7C796 /* WS.swift in Sources */,
 				895D6ED72686FB0200C7C796 /* Painting.swift in Sources */,

@@ -12,6 +12,8 @@ class Canvas: UIView{
     
     var myPainting = Painting()
     var yourPaiting = Painting()
+    
+
 
     override func draw(_ rect: CGRect) {
         super.draw(rect)
@@ -25,9 +27,9 @@ class Canvas: UIView{
         
         yourPaiting.scanAllPoints(resolve: {(point, isNewStroke) in
             if (!isNewStroke){
-                context.addLine(to: point)
+                context.addLine(to: point.getScaledPoint())
             }else{
-                context.move(to: point)
+                context.move(to: point.getScaledPoint())
             }
         })
         
@@ -41,7 +43,7 @@ class Canvas: UIView{
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let point = touches.first?.location(in: nil){
-            myPainting.addPointToLastStroke(point: point)
+            myPainting.addPointToLastStroke(point: point.getScaledPoint())
             WS.intance.socket.emit("device_data", myPainting.lastStrokeToJSONArray()!)
         }
     }

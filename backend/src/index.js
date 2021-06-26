@@ -45,10 +45,10 @@ io.on("connect", (socket) => {
 
      const handleDataChange = lodash.debounce((res) => {
           const parsedData = JSON.stringify(parseSafe(res))
-          console.log('on have new stroke', parsedData)
+          console.log('on have new stroke', parseSafe(res).length)
           socket.to(usersMap[socket.id]).emit("server_data", (parsedData));
           socket.emit("server_data", (parsedData));
-     }, 30)
+     }, 5)
 
      socket.on("device_data", handleDataChange)
 
