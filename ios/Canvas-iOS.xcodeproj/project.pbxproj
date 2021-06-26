@@ -97,14 +97,6 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		895D6EDE2687394C00C7C796 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				895D6EDF2687397A00C7C796 /* CGPoint+Extension.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
 		89B4E70A2680A56900D92395 = {
 			isa = PBXGroup;
 			children = (
@@ -129,7 +121,6 @@
 		89B4E7152680A56A00D92395 /* Canvas-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				895D6EDE2687394C00C7C796 /* Extensions */,
 				89B4E74D2680A5DD00D92395 /* Model */,
 				89B4E74C2680A5D500D92395 /* ViewModel */,
 				89B4E74B2680A5CD00D92395 /* View */,
@@ -173,6 +164,8 @@
 		89B4E74A2680A5B700D92395 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				895D6E8926861BCE00C7C796 /* Configs.swift */,
+				895D6EDF2687397A00C7C796 /* CGPoint+Extension.swift */,
 				89B4E7562680A6FC00D92395 /* UIColor+Extensions.swift */,
 			);
 			path = Utilities;
@@ -197,7 +190,6 @@
 		89B4E74D2680A5DD00D92395 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				895D6E8926861BCE00C7C796 /* Configs.swift */,
 				895D6E9426861E6500C7C796 /* WS.swift */,
 				895D6ED62686FB0200C7C796 /* Painting.swift */,
 			);

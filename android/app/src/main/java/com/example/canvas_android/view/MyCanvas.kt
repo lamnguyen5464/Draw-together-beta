@@ -31,17 +31,7 @@ class MyCanvas(context: Context?, attrs: AttributeSet?) : View(context, attrs) {
         SCREEN_WIDTH = metrics?.widthPixels ?: 0
         SCREEN_HEIGHT = metrics?.heightPixels ?: 0
 
-        WS.getIntance().doConnect()
 
-        WS.getIntance().socket.emit("request_join", "1")
-
-        WS.getIntance().setEventListener(Socket.EVENT_CONNECT, Emitter.Listener {
-            Log.d("@@@ EVENT_CONNECT", it.contentToString());
-        })
-
-        WS.getIntance().setEventListener(Socket.EVENT_DISCONNECT, Emitter.Listener {
-            Log.d("@@@ EVENT_DISCONNECT", it.contentToString());
-        })
 
         WS.getIntance().setEventListener("server_data", Emitter.Listener {
             Log.d("@@@", "receive data from server" + it[0].toString())

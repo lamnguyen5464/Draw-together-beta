@@ -22,7 +22,6 @@ class ViewController: UIViewController {
         
         WS.intance.connectSocket()
         
-        
         WS.intance.setEventListener(eventName: "server_data", resolve: {(data) in
             let dataString = data as? String ?? ""
             
@@ -30,11 +29,13 @@ class ViewController: UIViewController {
             self.canvas.setNeedsDisplay()
         })
         
-        canvas.backgroundColor = UIColor.getColor(hex: "baby_blue")
-
-        
+        canvas.backgroundColor = UIColor.getColor(hex: "orange_07")
     }
     
+    override func viewWillDisappear(_ animated: Bool){
+        super.viewWillDisappear(true)
+        WS.intance.disconnectSocket()
+    }
     
 }
 
