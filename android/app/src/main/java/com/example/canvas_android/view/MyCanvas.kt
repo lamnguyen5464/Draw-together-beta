@@ -38,8 +38,8 @@ class MyCanvas(context: Context?, attrs: AttributeSet?) : View(context, attrs) {
         })
 
         WS.getIntance().setEventListener("server_data", Emitter.Listener {
-//            Log.d("@@@", "receive data from server" + it[0].toString())
-            yourPainting = Painting(JSONArray(it[0].toString()))
+            Log.d("@@@", "receive data from server" + it[0].toString())
+            yourPainting.addStroke(JSONArray(it[0].toString()))
 
             this.context.runOnUiThread {
                 postInvalidate()
@@ -79,7 +79,8 @@ class MyCanvas(context: Context?, attrs: AttributeSet?) : View(context, attrs) {
             MotionEvent.ACTION_MOVE -> {
                 myPainting.addPointToLastStroke(Point(event.x, event.y))
 //                postInvalidate()
-                WS.getIntance().socket.emit("device_data", myPainting.toJSONArray())
+
+                WS.getIntance().socket.emit("device_data", myPainting.lastStrokeToJSONArray())
             }
         }
 

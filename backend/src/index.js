@@ -1,6 +1,8 @@
 const socket = require("socket.io");
 const express = require("express");
 const lodash = require("lodash");
+const { parseSafe } = require('./utils')
+
 const PORT = 3000;
 
 //set up server
@@ -42,8 +44,10 @@ io.on("connect", (socket) => {
 
 
      const handleDataChange = lodash.debounce((res) => {
-          socket.to(usersMap[socket.id]).emit("server_data", JSON.stringify(res));
-          socket.emit("server_data", JSON.stringify(res));
+          const parsedData = JSON.stringify(parseSafe(res))
+          console.log('on have new stroke', parsedData)
+          socket.to(usersMap[socket.id]).emit("server_data", (parsedData));
+          socket.emit("server_data", (parsedData));
      }, 30)
 
      socket.on("device_data", handleDataChange)

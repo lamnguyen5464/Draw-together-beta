@@ -13,14 +13,18 @@ class Painting {
     constructor(jsonArray: JSONArray) {
         for (index in 0..jsonArray.length() - 1) {
             val jsonStroke: JSONArray = jsonArray.getJSONArray(index)
-            val stroke = ArrayList<Point>()
-            for (j in 0..jsonStroke.length() - 1) {
-                val jsonPoint = jsonStroke.getJSONObject(j)
-                val point = Point(jsonPoint.getDouble("x").toFloat(), jsonPoint.getDouble("y").toFloat())
-                stroke.add(point)
-            }
-            listStrokes.add(stroke)
+            addStroke((jsonStroke))
         }
+    }
+
+    fun addStroke(jsonStroke: JSONArray) {
+        val stroke = ArrayList<Point>()
+        for (j in 0..jsonStroke.length() - 1) {
+            val jsonPoint = jsonStroke.getJSONObject(j)
+            val point = Point(jsonPoint.getDouble("x").toFloat(), jsonPoint.getDouble("y").toFloat())
+            stroke.add(point)
+        }
+        listStrokes.add(stroke)
     }
 
     fun addStroke(stroke: ArrayList<Point>) {
@@ -39,6 +43,21 @@ class Painting {
                 resolve(currentPoint, index === 0)
             }
         }
+    }
+
+    fun lastStrokeToJSONArray(): JSONArray {
+        var stroke = JSONArray()
+
+        if (listStrokes.size !== 0) {
+            var lastStroke = listStrokes[listStrokes.size - 1]
+            for (point in lastStroke) {
+                var obj = JSONObject()
+                obj.put("x", point.x)
+                obj.put("y", point.y)
+                stroke.put(obj)
+            }
+        }
+        return stroke;
     }
 
     fun toJSONArray(): JSONArray {

@@ -10,7 +10,8 @@ import SocketIO
 
 class Canvas: UIView{
     
-    var myPainting = Paiting()
+    var myPainting = Painting()
+    var yourPaiting = Painting()
 
     override func draw(_ rect: CGRect) {
         super.draw(rect)
@@ -20,9 +21,9 @@ class Canvas: UIView{
         
         context.setLineWidth(10)
         context.setLineCap(.round)
-        context.setStrokeColor(UIColor.getColor(hex: "black_09").cgColor) 
+        context.setStrokeColor(UIColor.getColor(hex: "black_20").cgColor) 
         
-        myPainting.scanAllPoints(resolve: {(point, isNewStroke) in
+        yourPaiting.scanAllPoints(resolve: {(point, isNewStroke) in
             if (!isNewStroke){
                 context.addLine(to: point)
             }else{
@@ -41,8 +42,7 @@ class Canvas: UIView{
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let point = touches.first?.location(in: nil){
             myPainting.addPointToLastStroke(point: point)
-            
-//            setNeedsDisplay()
+            WS.intance.socket.emit("device_data", myPainting.lastStrokeToJSONArray()!)
         }
     }
     

@@ -24,11 +24,9 @@ class ViewController: UIViewController {
         
         
         WS.intance.setEventListener(eventName: "server_data", resolve: {(data) in
-            print("herer")
-            
             let dataString = data as? String ?? ""
             
-            self.canvas.myPainting = Paiting(dataString: dataString)
+            self.canvas.yourPaiting.addStroke(stringStroke: dataString)
             self.canvas.setNeedsDisplay()
         })
         
