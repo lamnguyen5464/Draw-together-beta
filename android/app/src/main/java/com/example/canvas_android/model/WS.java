@@ -38,6 +38,7 @@ public class WS {
         if (this.socket == null) {
             try {
                 this.socket = IO.socket(Configs.SOCKET_URI);
+                this.socket.disconnect();
                 this.socket.connect();
             } catch (URISyntaxException e) {
                 e.printStackTrace();

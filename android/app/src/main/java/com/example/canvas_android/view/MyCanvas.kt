@@ -29,10 +29,6 @@ class MyCanvas(context: Context?, attrs: AttributeSet?) : View(context, attrs) {
 
         WS.getIntance().socket.emit("request_join", "1")
 
-        WS.getIntance().setEventListener("back", Emitter.Listener {
-            Log.d("@@@ back", it.contentToString() + " " + WS.getIntance().id)
-        })
-
         WS.getIntance().setEventListener(Socket.EVENT_CONNECT, Emitter.Listener {
             Log.d("@@@ EVENT_CONNECT", it.contentToString());
         })
@@ -42,7 +38,7 @@ class MyCanvas(context: Context?, attrs: AttributeSet?) : View(context, attrs) {
         })
 
         WS.getIntance().setEventListener("server_data", Emitter.Listener {
-            Log.d("@@@", "receive data from server" + it[0].toString())
+//            Log.d("@@@", "receive data from server" + it[0].toString())
             yourPainting = Painting(JSONArray(it[0].toString()))
 
             this.context.runOnUiThread {

@@ -3,10 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		895D6E802686140100C7C796 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895D6E7F2686140100C7C796 /* Point.swift */; };
+		895D6E8A26861BCE00C7C796 /* Configs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895D6E8926861BCE00C7C796 /* Configs.swift */; };
+		895D6E9526861E6500C7C796 /* WS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895D6E9426861E6500C7C796 /* WS.swift */; };
+		895D6ED22686F86C00C7C796 /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = 895D6ED12686F86C00C7C796 /* SocketIO */; };
+		895D6ED72686FB0200C7C796 /* Painting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895D6ED62686FB0200C7C796 /* Painting.swift */; };
 		89B4E7172680A56A00D92395 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B4E7162680A56A00D92395 /* AppDelegate.swift */; };
 		89B4E7192680A56A00D92395 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B4E7182680A56A00D92395 /* SceneDelegate.swift */; };
 		89B4E71B2680A56A00D92395 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B4E71A2680A56A00D92395 /* ViewController.swift */; };
@@ -37,6 +42,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		895D6E7F2686140100C7C796 /* Point.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
+		895D6E8926861BCE00C7C796 /* Configs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configs.swift; sourceTree = "<group>"; };
+		895D6E9426861E6500C7C796 /* WS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WS.swift; sourceTree = "<group>"; };
+		895D6ED62686FB0200C7C796 /* Painting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Painting.swift; sourceTree = "<group>"; };
 		89B4E7132680A56A00D92395 /* Canvas-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Canvas-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		89B4E7162680A56A00D92395 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89B4E7182680A56A00D92395 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				895D6ED22686F86C00C7C796 /* SocketIO in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,6 +90,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		28EECA6A714AE74BDCEF3483 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		89B4E70A2680A56900D92395 = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +104,7 @@
 				89B4E72C2680A56D00D92395 /* Canvas-iOSTests */,
 				89B4E7372680A56D00D92395 /* Canvas-iOSUITests */,
 				89B4E7142680A56A00D92395 /* Products */,
+				28EECA6A714AE74BDCEF3483 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -170,6 +188,10 @@
 		89B4E74D2680A5DD00D92395 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				895D6E7F2686140100C7C796 /* Point.swift */,
+				895D6E8926861BCE00C7C796 /* Configs.swift */,
+				895D6E9426861E6500C7C796 /* WS.swift */,
+				895D6ED62686FB0200C7C796 /* Painting.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -190,6 +212,9 @@
 			dependencies = (
 			);
 			name = "Canvas-iOS";
+			packageProductDependencies = (
+				895D6ED12686F86C00C7C796 /* SocketIO */,
+			);
 			productName = "Canvas-iOS";
 			productReference = 89B4E7132680A56A00D92395 /* Canvas-iOS.app */;
 			productType = "com.apple.product-type.application";
@@ -261,6 +286,9 @@
 				Base,
 			);
 			mainGroup = 89B4E70A2680A56900D92395;
+			packageReferences = (
+				895D6ED02686F86C00C7C796 /* XCRemoteSwiftPackageReference "socket" */,
+			);
 			productRefGroup = 89B4E7142680A56A00D92395 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -305,8 +333,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				89B4E71B2680A56A00D92395 /* ViewController.swift in Sources */,
+				895D6E8A26861BCE00C7C796 /* Configs.swift in Sources */,
 				89B4E7572680A6FC00D92395 /* UIColor+Extensions.swift in Sources */,
+				895D6E802686140100C7C796 /* Point.swift in Sources */,
 				89B4E7172680A56A00D92395 /* AppDelegate.swift in Sources */,
+				895D6E9526861E6500C7C796 /* WS.swift in Sources */,
+				895D6ED72686FB0200C7C796 /* Painting.swift in Sources */,
 				89B4E7192680A56A00D92395 /* SceneDelegate.swift in Sources */,
 				89B4E74F2680A62500D92395 /* Canvas.swift in Sources */,
 			);
@@ -635,6 +667,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		895D6ED02686F86C00C7C796 /* XCRemoteSwiftPackageReference "socket" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/socketio/socket.io-client-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 16.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		895D6ED12686F86C00C7C796 /* SocketIO */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 895D6ED02686F86C00C7C796 /* XCRemoteSwiftPackageReference "socket" */;
+			productName = SocketIO;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 89B4E70B2680A56900D92395 /* Project object */;
 }

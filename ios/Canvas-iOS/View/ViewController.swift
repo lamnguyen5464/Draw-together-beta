@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Foundation
+import SocketIO
 
 class ViewController: UIViewController {
     
@@ -14,14 +16,27 @@ class ViewController: UIViewController {
     override func loadView(){
         self.view = canvas
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        WS.intance.connectSocket()
+        
+        
+        WS.intance.setEventListener(eventName: "server_data", resolve: {(data) in
+            print("herer")
+            
+            let dataString = data as? String ?? ""
+            
+            self.canvas.myPainting = Paiting(dataString: dataString)
+            self.canvas.setNeedsDisplay()
+        })
+        
         canvas.backgroundColor = UIColor.getColor(hex: "baby_blue")
+
         
     }
-
-
+    
+    
 }
 
