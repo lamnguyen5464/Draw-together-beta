@@ -14,4 +14,8 @@ npm run setup
 This scrip is constructed to set up local websocket server with `PORT: 3000` and sync url to configuration files in Android Studio and XCode
 
 ## Tech stack
-Kotlin, Java (Android app), Swift (iOS app), nodeJs, Express, SocketIO.
+Kotlin, Java (Android app), Swift (iOS app), NodeJs, Express, SocketIO.
+
+## Demo
+
+<img src="demo/drawTogetherDemo.gif" alt="drawing" width="300"/>
