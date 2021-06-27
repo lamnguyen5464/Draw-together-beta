@@ -12,6 +12,7 @@ import io.socket.emitter.Emitter
 class MainActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        this.actionBar?.hide()
 
         initSocket()
 
