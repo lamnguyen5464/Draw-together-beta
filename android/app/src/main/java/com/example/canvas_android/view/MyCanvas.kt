@@ -2,8 +2,7 @@ package com.example.canvas_android.view
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.graphics.Canvas
-import android.graphics.Paint
+import android.graphics.*
 import android.util.AttributeSet
 import android.util.DisplayMetrics
 import android.util.Log
@@ -13,7 +12,6 @@ import com.example.canvas_android.R
 import com.example.canvas_android.model.Painting
 import com.example.canvas_android.model.Point
 import com.example.canvas_android.model.WS
-import io.socket.client.Socket
 import io.socket.emitter.Emitter
 import org.json.JSONArray
 
@@ -23,20 +21,20 @@ class MyCanvas(context: Context?, attrs: AttributeSet?) : View(context, attrs) {
     var myPainting = Painting()
     var yourPainting = Painting()
 
-    val SCREEN_WIDTH: Int
-    val SCREEN_HEIGHT: Int
+    private val SCREEN_WIDTH: Int
+    private val SCREEN_HEIGHT: Int
+
+    var savedBitmap: Bitmap? = null
+    var savedCanvas: Canvas? = null
 
     init {
         val metrics: DisplayMetrics? = context?.getResources()?.getDisplayMetrics()
         SCREEN_WIDTH = metrics?.widthPixels ?: 0
         SCREEN_HEIGHT = metrics?.heightPixels ?: 0
 
-
-
         WS.getIntance().setEventListener("server_data", Emitter.Listener {
-            Log.d("@@@", "receive data from server" + it[0].toString())
+//            Log.d("@@@", "receive data from server" + it[0].toString())
             yourPainting.addStroke(JSONArray(it[0].toString()))
-
             postInvalidate()
 
         })
@@ -46,6 +44,15 @@ class MyCanvas(context: Context?, attrs: AttributeSet?) : View(context, attrs) {
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
 
+        if (savedBitmap === null) {
+            //void re-draw
+            savedBitmap = Bitmap.createBitmap(SCREEN_WIDTH, SCREEN_HEIGHT, Bitmap.Config.ARGB_8888)
+            savedCanvas = Canvas(savedBitmap!!)
+            savedCanvas?.drawColor(
+                    Color.TRANSPARENT,
+                    PorterDuff.Mode.CLEAR);
+        }
+
         var paintStyle = Paint();
         paintStyle.strokeWidth = 15F
         paintStyle.color = R.color.BLACK_20
@@ -53,21 +60,21 @@ class MyCanvas(context: Context?, attrs: AttributeSet?) : View(context, attrs) {
         paintStyle.alpha = 1000
 
         var prePoint: Point? = null
-        yourPainting?.scanAllPoints { point: Point, isFirstPointOfStroke: Boolean ->
+        yourPainting?.scanLatestStoke { point: Point ->
             var curPoint = point
-            prePoint = if (isFirstPointOfStroke) point else prePoint
-            canvas?.drawLine(prePoint!!.x * SCREEN_WIDTH, prePoint!!.y * SCREEN_HEIGHT, curPoint.x * SCREEN_WIDTH, curPoint.y * SCREEN_HEIGHT, paintStyle)
+            prePoint = if (prePoint === null) point else prePoint
+            savedCanvas?.drawLine(prePoint!!.x * SCREEN_WIDTH, prePoint!!.y * SCREEN_HEIGHT, curPoint.x * SCREEN_WIDTH, curPoint.y * SCREEN_HEIGHT, paintStyle)
             prePoint = curPoint
         }
 
-
+        canvas?.drawBitmap(savedBitmap!!, 0f, 0f, Paint())
     }
 
     override fun onTouchEvent(event: MotionEvent?): Boolean {
 
         when (event?.actionMasked) {
             MotionEvent.ACTION_DOWN -> {
-                myPainting.addStroke(ArrayList<Point>())
+                myPainting.addStroke(arrayListOf(Point(event.x / SCREEN_WIDTH, event.y / SCREEN_HEIGHT)))
             }
 
             MotionEvent.ACTION_MOVE -> {

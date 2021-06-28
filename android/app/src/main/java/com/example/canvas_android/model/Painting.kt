@@ -3,6 +3,7 @@ package com.example.canvas_android.model
 import android.util.Log
 import org.json.JSONArray
 import org.json.JSONObject
+import kotlin.math.sqrt
 
 class Painting {
     var listStrokes = ArrayList<ArrayList<Point>>()
@@ -33,12 +34,26 @@ class Painting {
 
     fun addPointToLastStroke(point: Point) {
         listStrokes.last {
+            //optimize point
+            val lastPoint = it[it.size - 1]
+            val dis: Double = sqrt(Math.pow(((lastPoint.x - point.x).toDouble()), 2.0) + Math.pow(((lastPoint.y - point.y).toDouble()), 2.0))
+            if (dis < 0.03) return
+//            Log.d("@@@", point.x.toString() + " " + point.y.toString() + "      " + dis.toString() + "       " + it.size.toString())
             it.add(point)
         }
     }
 
+    fun scanLatestStoke(resolve: (Point) -> Unit){
+        if (listStrokes.size > 0){
+            val latestStroke = listStrokes[listStrokes.size - 1]
+            latestStroke.forEach {
+                resolve(it)
+            }
+        }
+    }
+
     fun scanAllPoints(resolve: (Point, Boolean) -> Unit) {
-        for (index in 0..listStrokes.size-1) {
+        for (index in 0..listStrokes.size - 1) {
             val stroke = listStrokes[index]
             for ((jndex, currentPoint) in stroke.iterator().withIndex()) {
                 resolve(currentPoint, jndex === 0)
