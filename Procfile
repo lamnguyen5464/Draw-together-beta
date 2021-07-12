@@ -1,1 +1,1 @@
-web: yarn backend
+web: cd backend && node src/index.js
