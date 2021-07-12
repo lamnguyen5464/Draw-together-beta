@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "setup": "yarn ios ; yarn android ; cd backend && yarn all ; cd ..",
-    "backend": "cd backend && yarn start ; cd ..",
+    "backend": "cd backend && yarn all ; cd ..",
     "ios": "node setup.js ios && cd ios && rm -rf Pods && rm -rf Podfile.lock && pod install ; cd ..",
     "android": "node setup.js android",
     "git_commit": "node setup.js commit",
